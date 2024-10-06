@@ -209,11 +209,23 @@ export function FeedPage({ id, TOC, clean }: { id: string, TOC: () => JSX.Elemen
               >
                 <div className="flex justify-between">
                   <div>
-                    <div className="mt-1 mb-1 flex flex-col">
-                      <div className="flex gap-1 text-gray-400 text-[12px]">
-                        <p title={new Date(feed.createdAt).toLocaleString()}>
-                          {t("feed_card.published$time", {
-                            time: timeago(feed.createdAt),
+                    <div className="mt-1 mb-1 flex gap-1">
+                      <p
+                        className="text-gray-400 text-[12px]"
+                        title={new Date(feed.createdAt).toLocaleString()}
+                      >
+                        {t("feed_card.published$time", {
+                          time: timeago(feed.createdAt),
+                        })}
+                      </p>
+
+                      {feed.createdAt !== feed.updatedAt && (
+                        <p
+                          className="text-gray-400 text-[12px]"
+                          title={new Date(feed.updatedAt).toLocaleString()}
+                        >
+                          {t("feed_card.updated$time", {
+                            time: timeago(feed.updatedAt),
                           })}
                         </p>                      
                         {feed.createdAt !== feed.updatedAt && (
