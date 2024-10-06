@@ -4,7 +4,6 @@ import { ClientConfigContext } from '../state/config';
 import { Helmet } from "react-helmet";
 import { siteName } from '../utils/constants';
 import { useTranslation } from "react-i18next";
-import { fetchCountAndUpdateUI } from '../utils/count';
 
 type ThemeMode = 'light' | 'dark' | 'system';
 function Footer() {
