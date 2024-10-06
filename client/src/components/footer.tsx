@@ -46,7 +46,7 @@ function Footer() {
                 {footerHtml && <div dangerouslySetInnerHTML={{ __html: footerHtml }} />}
                 <p className='text-sm text-neutral-500 font-normal link-line'>
                     <span>
-                        © 2024 Powered by <a className='hover:underline' href="https://github.com/openRin/Rin" target="_blank">Rin</a>
+                        © 2024 <a className='hover:underline' href="https://www.kafuchino.top" target="_blank">Chino</a>
                     </span>
                     {config.get<boolean>('rss') && <>
                         <Spliter />
@@ -77,6 +77,10 @@ function Footer() {
                             </div>
                         </Popup>
                     </>}
+                     <br/>
+                    <a className='hover:underline' href="https://icp.gov.moe/?keyword=20240729" target="_blank"><span className="icon-MOE"/>萌ICP备20240729号</a> | <a className='hover:underline' href="https://travel.moe/go.html?travel=on" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">异次元之旅</a>
+                    <br/>Powered by <a className='hover:underline' href="https://github.com/liuran001/Rin" target="_blank">Rin</a> & <a className='hover:underline' href="https://www.cloudflare.com" target="_blank">Cloudflare</a>
+                    {cdnFlag && <><br/><a className='hover:underline' href="https://www.dogecloud.com/" target="_blank">DogeCloud</a> {t('cdn_from_china')}</>}
                 </p>
                 <div className="w-fit-content inline-flex rounded-full border border-zinc-200 p-[3px] dark:border-zinc-700">
                     <ThemeButton mode='light' current={modeState} label="Toggle light mode" icon="ri-sun-line" onClick={setMode} />
