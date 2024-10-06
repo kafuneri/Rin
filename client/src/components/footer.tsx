@@ -49,7 +49,6 @@ function Footer() {
                     <ThemeButton mode='light' current={modeState} label="Toggle light mode" icon="ri-sun-line" onClick={setMode} />
                     <ThemeButton mode='system' current={modeState} label="Toggle system mode" icon="ri-computer-line" onClick={setMode} />
                     <ThemeButton mode='dark' current={modeState} label="Toggle dark mode" icon="ri-moon-line" onClick={setMode} />
-                </div>
                     <span>
                         © 2024 <a className='hover:underline' href="https://www.kafuchino.top" target="_blank">Chino</a>
                     </span>
@@ -82,6 +81,7 @@ function Footer() {
                             </div>
                         </Popup>
                     </>}
+                         <a className='hover:underline' href="https://icp.gov.moe/?keyword=20240729" target="_blank"><span className="icon-MOE"/>萌ICP备20240729号</a> | <a className='hover:underline' href="https://travel.moe/go.html?travel=on" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">异次元之旅</a>
                      </p>
                
             </div>
