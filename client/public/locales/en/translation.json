@@ -52,6 +52,8 @@
     "empty": "Content cannot be empty"
   },
   "count": {
+    "site_uv": "Total Visitors",
+    "site_pv": "Total Views",
     "pv": "Page View",
     "uv": "Visitors"
   },
@@ -95,7 +97,11 @@
       "rejected": "Rejected",
       "waiting": "Pending review"
     },
-    "title": "Friends"
+    "title": "Friends",
+    "apply_tip": {
+      "title": "Webmaster Information",
+      "content": "Before applying, please add a friend link to your site with the following information"
+    }
   },
   "github_login": "Github Login",
   "hashtags": "Hashtags",
