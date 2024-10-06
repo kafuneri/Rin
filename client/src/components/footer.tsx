@@ -81,8 +81,7 @@ function Footer() {
                             </div>
                         </Popup>
                     </>}
-                         <a className='hover:underline' href="https://icp.gov.moe/?keyword=20240729" target="_blank"><span className="icon-MOE"/>萌ICP备20240729号</a> | <a className='hover:underline' href="https://travel.moe/go.html?travel=on" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">异次元之旅</a>
-                     </p>
+                    </p>
                
             </div>
         </footer>
