@@ -18,6 +18,7 @@ import { Button } from "../components/button";
 import { Tips } from "../components/tips";
 import { useLoginModal } from "../hooks/useLoginModal";
 import mermaid from "mermaid";
+import { fetchCountAndUpdateUI } from "../utils/count";
 
 type Feed = {
   id: number;
@@ -128,6 +129,7 @@ export function FeedPage({ id, TOC, clean }: { id: string, TOC: () => JSX.Elemen
         }
       });
     ref.current = id;
+    fetchCountAndUpdateUI(true)
   }, [id]);
   useEffect(() => {
     mermaid.initialize({
