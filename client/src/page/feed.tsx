@@ -229,16 +229,6 @@ export function FeedPage({ id, TOC, clean }: { id: string, TOC: () => JSX.Elemen
                           })}
                         </p>
                       )}
-                      </div>
-                      <div className="text-gray-400 text-[12px]">
-                        <p>
-                          {t('count.page_pv')} <span id="page_pv" />
-                        </p>
-                        <span>|</span>
-                        <p>
-                          {t('count.page_uv')} <span id="page_uv" />
-                        </p>
-                      </div>
                     </div>
                     {counterEnabled && <p className='text-[12px] text-gray-400 font-normal link-line'>
                       <span> {t("count.pv")} </span>
