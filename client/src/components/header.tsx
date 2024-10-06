@@ -1,4 +1,4 @@
-import { useContext, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import ReactModal from "react-modal";
 import Popup from "reactjs-popup";
@@ -10,12 +10,14 @@ import { Button } from "./button";
 import { IconSmall } from "./icon";
 import { Input } from "./input";
 import { Padding } from "./padding";
-
+import { fetchHitokoto } from "../utils/hitokoto";
 
 export function Header({ children }: { children?: React.ReactNode }) {
     const profile = useContext(ProfileContext);
     const { t } = useTranslation()
-
+    useEffect(() => {
+        fetchHitokoto()
+    }, [])
     return useMemo(() => (
         <>
             <div className="fixed z-40">
@@ -30,7 +32,7 @@ export function Header({ children }: { children?: React.ReactNode }) {
                                         {process.env.NAME}
                                     </p>
                                     <p className="text-xs text-neutral-500">
-                                        {process.env.DESCRIPTION}
+                                        <span id="hitokoto_text">{process.env.DESCRIPTION}</span>
                                     </p>
                                 </div>
                             </Link>
@@ -47,7 +49,7 @@ export function Header({ children }: { children?: React.ReactNode }) {
                                                 {process.env.NAME}
                                             </p>
                                             <p className="text-xs text-neutral-500">
-                                                {process.env.DESCRIPTION}
+                                                <span id="hitokoto_text">{process.env.DESCRIPTION}</span>
                                             </p>
                                         </div>
                                     </Link>
