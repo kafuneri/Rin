@@ -228,16 +228,9 @@ export function FeedPage({ id, TOC, clean }: { id: string, TOC: () => JSX.Elemen
                             time: timeago(feed.updatedAt),
                           })}
                         </p>
-                      {feed.createdAt !== feed.updatedAt && (
-                          <><span>|</span>
-                            <p title={new Date(feed.updatedAt).toLocaleString()}>
-                              {t("feed_card.updated$time", {
-                                time: timeago(feed.updatedAt),
-                              })}
-                            </p></>
-                        )}
+                      )}
                       </div>
-                      <div className="flex gap-1 text-gray-400 text-[12px]">
+                      <div className="text-gray-400 text-[12px]">
                         <p>
                           {t('count.page_pv')} <span id="page_pv" />
                         </p>
