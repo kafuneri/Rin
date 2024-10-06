@@ -13,6 +13,7 @@ import { ProfileContext } from "../state/profile";
 import { shuffleArray } from "../utils/array";
 import { headersWithAuth } from "../utils/auth";
 import { siteName } from "../utils/constants";
+import { Markdown } from "../components/markdown";
 
 
 type FriendItem = {
@@ -89,6 +90,15 @@ export function FriendsPage() {
     function publishButton() {
         publish({ name, desc, avatar, url, showAlert })
     }
+    const apply_tip = `### ${t('friends.apply_tip.title')} 
+${t('friends.apply_tip.content')} 
+\`\`\`
+${t('sitename')}: ${process.env.NAME}
+${t('description')}: ${process.env.DESCRIPTION}
+${t('avatar.url')}: ${process.env.AVATAR}
+${t('url')}: ${process.env.URL}
+\`\`\`
+`    
     return (<>
         <Helmet>
             <title>{`${t('friends.title')} - ${process.env.NAME}`}</title>
@@ -118,6 +128,11 @@ export function FriendsPage() {
                                 <Input value={url} setValue={setUrl} placeholder={t('url')} className="my-2" />
                                 <div className='flex flex-row justify-center'>
                                     <button onClick={publishButton} className='basis-1/2 bg-theme text-white py-4 rounded-full shadow-xl shadow-light'>{t('create.title')}</button>
+                                </div>
+                                <div>
+                                    <p className="text-sm mt-4 text-neutral-500 font-normal">
+                                        <Markdown content={apply_tip} />
+                                    </p>
                                 </div>
                             </div>
                         </div>
