@@ -52,8 +52,6 @@
     "empty": "内容不能为空"
   },
   "count": {
-    "site_uv": "总访客数",
-    "site_pv": "总浏览量",
     "pv": "浏览数",
     "uv": "访客数"
   },
@@ -97,11 +95,7 @@
       "rejected": "拒绝",
       "waiting": "待审核"
     },
-    "title": "朋友们"
-    "apply_tip": {
-      "title": "站长信息",
-      "content": "申请前，请先按以下信息在贵站添加友链"
-    }
+    "title": "朋友们"  
   },
   "github_login": "Github 登录",
   "hashtags": "标签",
