@@ -95,7 +95,11 @@
       "rejected": "Rejected",
       "waiting": "Pending review"
     },
-    "title": "Friends"
+    "title": "Friends",
+    "apply_tip": {
+      "title": "Webmaster Information",
+      "content": "Before applying, please add a friend link to your site with the following information"
+    }
   },
   "github_login": "Github Login",
   "hashtags": "Hashtags",
@@ -221,4 +225,11 @@
   },
   "writing": "Writing",
   "year$year": "{{year}}"
+  "count": {
+    "site_uv": "Total Visitors",
+    "site_pv": "Total Views",
+    "page_pv": "Views",
+    "page_uv": "Visitors"
+  },
+  "cdn_from_china": "provides acceleration in China"
 }
