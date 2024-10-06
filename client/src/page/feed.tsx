@@ -227,11 +227,18 @@ export function FeedPage({ id, TOC, clean }: { id: string, TOC: () => JSX.Elemen
                           {t("feed_card.updated$time", {
                             time: timeago(feed.updatedAt),
                           })}
+                        </p></>
+                        )}
+                      </div>
+                      <div className="text-[12px] text-gray-400 font-normal link-line">
+                        <p>
+                          {t('count.page_pv')} <span id="page_pv" />
                         </p>
-                      )}
-                      <p className="text-gray-400 text-sm">
-                      总阅读量 <span id="busuanzi_page_pv">加载中</span> | 总访客数 <span id="busuanzi_page_uv">加载中</span>
-                      </p>
+                        <span>|</span>
+                        <p>
+                          {t('count.page_uv')} <span id="page_uv" />
+                        </p>
+                      </div>
                     </div>
                     {counterEnabled && <p className='text-[12px] text-gray-400 font-normal link-line'>
                       <span> {t("count.pv")} </span>
