@@ -96,6 +96,10 @@
       "waiting": "審査待ち"
     },
     "title": "友人"
+    "apply_tip": {
+      "title": "ウェブマスター情報",
+      "content": "申請する前に、以下の情報を使用してサイトに友達リンクを追加してください"
+    }
   },
   "github_login": "Github ログイン",
   "hashtags": "ラベル",
@@ -221,4 +225,11 @@
   },
   "writing": "執筆",
   "year$year": "{{year}} 年"
+  "count": {
+    "site_uv": "総訪問者数",
+    "site_pv": "総閲覧数",
+    "page_pv": "閲覧数",
+    "page_uv": "訪問者数"
+  },
+  "cdn_from_china": "中国でアクセラレーションを提供"
 }
