@@ -4,17 +4,33 @@ import { ClientConfigContext } from '../state/config';
 import { Helmet } from "react-helmet";
 import { siteName } from '../utils/constants';
 import { useTranslation } from "react-i18next";
+import { fetchCountAndUpdateUI } from '../utils/count';
 
 type ThemeMode = 'light' | 'dark' | 'system';
 function Footer() {
     const { t } = useTranslation()
     const [modeState, setModeState] = useState<ThemeMode>('system');
     const config = useContext(ClientConfigContext);
+    const [cdnFlag, setCdnFlag] = useState(false);
+    const [flagRequested, setFlagRequested] = useState(false);
     const footerHtml = config.get<string>('footer');
     useEffect(() => {
         const mode = localStorage.getItem('theme') as ThemeMode || 'system';
         setModeState(mode);
         setMode(mode);
+        if (!flagRequested) {
+            setFlagRequested(true)
+            fetch('/cdnflag')
+                .then(response => response.text())
+                .then(data => {
+                    if (data === '1') {
+                        setCdnFlag(true);
+                    }
+                })
+                .catch(error => console.error('Error fetching CDN flag:', error))
+                .finally();
+        }
+        fetchCountAndUpdateUI()
     }, [])
 
     const setMode = (mode: ThemeMode) => {
@@ -37,6 +53,7 @@ function Footer() {
 
     return (
         <footer>
+            <br/><br/>
             <Helmet>
                 <link rel="alternate" type="application/rss+xml" title={siteName} href="/sub/rss.xml" />
                 <link rel="alternate" type="application/atom+xml" title={siteName} href="/sub/atom.xml" />
@@ -44,9 +61,17 @@ function Footer() {
             </Helmet>
             <div className="flex flex-col mb-8 space-y-2 justify-center items-center t-primary ani-show">
                 {footerHtml && <div dangerouslySetInnerHTML={{ __html: footerHtml }} />}
-                <p className='text-sm text-neutral-500 font-normal link-line'>
+                 <div className="w-fit-content inline-flex rounded-full border border-zinc-200 p-[3px] dark:border-zinc-700">
+                    <ThemeButton mode='light' current={modeState} label="Toggle light mode" icon="ri-sun-line" onClick={setMode} />
+                    <ThemeButton mode='system' current={modeState} label="Toggle system mode" icon="ri-computer-line" onClick={setMode} />
+                    <ThemeButton mode='dark' current={modeState} label="Toggle dark mode" icon="ri-moon-line" onClick={setMode} />
+                </div>
+                <p className='text-sm text-neutral-500 font-normal text-center'>
+                    {t('count.site_pv')} <span id="site_pv"></span> | {t('count.site_uv')} <span id="site_uv"></span>
+                </p>
+                <p className='text-sm text-neutral-500 font-normal link-line text-center'>
                     <span>
-                        © 2024 Powered by <a className='hover:underline' href="https://github.com/openRin/Rin" target="_blank">Rin</a>
+                        © 2024 <a className='hover:underline' href="https://www.kafuchino.top" target="_blank">Chino</a>
                     </span>
                     {config.get<boolean>('rss') && <>
                         <Spliter />
@@ -77,13 +102,13 @@ function Footer() {
                             </div>
                         </Popup>
                     </>}
-                </p>
-                <div className="w-fit-content inline-flex rounded-full border border-zinc-200 p-[3px] dark:border-zinc-700">
-                    <ThemeButton mode='light' current={modeState} label="Toggle light mode" icon="ri-sun-line" onClick={setMode} />
-                    <ThemeButton mode='system' current={modeState} label="Toggle system mode" icon="ri-computer-line" onClick={setMode} />
-                    <ThemeButton mode='dark' current={modeState} label="Toggle dark mode" icon="ri-moon-line" onClick={setMode} />
-                </div>
+                    <br/>
+                    <a className='hover:underline' href="https://icp.gov.moe/?keyword=20240729" target="_blank"><span className="icon-MOE"/>萌ICP备20240729号</a> | <a className='hover:underline' href="https://travel.moe/go.html?travel=on" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">异次元之旅</a>
+                    <br/>Powered by <a className='hover:underline' href="https://github.com/liuran001/Rin" target="_blank">Rin</a> & <a className='hover:underline' href="https://www.cloudflare.com" target="_blank">Cloudflare</a>
+                    {cdnFlag && <><br/><a className='hover:underline' href="https://www.dogecloud.com/" target="_blank">DogeCloud</a> {t('cdn_from_china')}</>}
+                </p>                         
             </div>
+            <br/><br/><br/>
         </footer>
     );
 }
