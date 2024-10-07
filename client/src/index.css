@@ -213,11 +213,11 @@ a.toc-link {
 /* MoeICP */
 @font-face {
   font-family: 'icomoon';
-  src:  url('https://blog.obdo.cc/icomoon.eot');
-  src:  url('https://blog.obdo.cc/icomoon.eot') format('embedded-opentype'),
-    url('https://blog.obdo.cc/icomoon.ttf') format('truetype'),
-    url('https://blog.obdo.cc/icomoon.woff') format('woff'),
-    url('https://blog.obdo.cc/icomoon.svg') format('svg');
+  src:  url('fonts/icomoon.eot?n169zo');
+  src:  url('fonts/icomoon.eot?n169zo#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?n169zo') format('truetype'),
+    url('fonts/icomoon.woff?n169zo') format('woff'),
+    url('fonts/icomoon.svg?n169zo#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -226,6 +226,7 @@ a.toc-link {
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
+  speak: never;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -235,4 +236,8 @@ a.toc-link {
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-MOE:before {
+  content: "\e900";
 }
