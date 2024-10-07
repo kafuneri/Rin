@@ -3,9 +3,9 @@ import * as crypto from 'crypto';
 /**
  * 生成加签签名
  * @param secret 钉钉机器人的加签密钥
- * @returns {timestamp, sign} 时间戳和签名
+ * @returns {timestamp: number, sign: string} 时间戳和签名
  */
-function generateSignature(secret: string) {
+function generateSignature(secret: string): { timestamp: number; sign: string } {
     const timestamp = Date.now();
     const stringToSign = `${timestamp}\n${secret}`;
     const hmac = crypto.createHmac('sha256', secret);
@@ -19,7 +19,7 @@ function generateSignature(secret: string) {
  * @param url 钉钉机器人Webhook URL
  * @param data 发送的消息内容
  */
-async function sendWebhook(url: string, data: any) {
+async function sendWebhook(url: string, data: any): Promise<Response> {
     return await fetch(url, {
         method: 'POST',
         headers: {
@@ -33,9 +33,9 @@ async function sendWebhook(url: string, data: any) {
  * 通知函数
  * @param message 发送的消息
  */
-export async function notify(message: string) {
+export async function notify(message: string): Promise<void> {
     const webhook_url = 'https://oapi.dingtalk.com/robot/send?access_token=5567b2ed508a9757acca984c5e0826a13e1e8e720d1b351e7eb909ebabb6899f';
-    const secret = 'SEC62521b2c6d4baffa500ef8839c06a1d54aee65d33c47fbe022e19905124b7a45';
+    const secret = 'SEC57abed8a54a5d0ed558c4eef2549f518010edbf9f23d0225b52d16494745fb01';
 
     if (!webhook_url || !secret) {
         console.error('Please set WEBHOOK_URL and secret');
@@ -49,7 +49,7 @@ export async function notify(message: string) {
     const signed_url = `${webhook_url}&timestamp=${timestamp}&sign=${sign}`;
 
     // 发送消息
-    return await sendWebhook(signed_url, {
+    await sendWebhook(signed_url, {
         msgtype: 'text',
         text: { content: message }
     });
