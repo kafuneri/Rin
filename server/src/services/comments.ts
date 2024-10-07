@@ -60,7 +60,12 @@ export function CommentService() {
 
                     const webhookUrl = await ServerConfig().get(Config.webhookUrl) || env.WEBHOOK_URL;
                     // notify
-                    await notify(webhookUrl, `${env.FRONTEND_URL}/feed/${feedId}\n${user.username} 评论了: ${exist.title}\n${content}`);
+                    if (webhookUrl) { // 确保 webhookUrl 存在
+                        await notify(`${env.FRONTEND_URL}/feed/${feedId}\n${user.username} 评论了: ${exist.title}\n${content}`);
+                    } else {
+                        console.error('Webhook URL is not defined.');
+                    }
+                    
                     return 'OK';
                 }, {
                     body: t.Object({
