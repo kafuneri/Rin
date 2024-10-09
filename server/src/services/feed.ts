@@ -9,6 +9,33 @@ import { ClientConfig, PublicCache } from "../utils/cache";
 import { getDB } from "../utils/di";
 import { extractImage } from "../utils/image";
 import { bindTagToPost } from "./tag";
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+
+type FooterProps = {
+  global_pv: number; // 全站访问量
+  global_uv: number; // 全站独立访客数
+};
+
+const Footer: React.FC<FooterProps> = ({ global_pv, global_uv }) => {
+  const { t } = useTranslation();
+
+  return (
+    <footer className="bg-gray-800 text-white py-4">
+      <div className="container mx-auto text-center">
+        <p className="text-[12px] font-normal">
+          <span>{t("count.global_pv")}: </span>
+          <span>{global_pv}</span>
+          <span> | </span>
+          <span>{t("count.global_uv")}: </span>
+          <span>{global_uv}</span>
+        </p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
 
 export function FeedService() {
     const db: DB = getDB();
