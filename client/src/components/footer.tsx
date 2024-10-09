@@ -1,10 +1,36 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState, React } from 'react';
 import Popup from 'reactjs-popup';
 import { ClientConfigContext } from '../state/config';
 import { Helmet } from "react-helmet";
 import { siteName } from '../utils/constants';
 import { useTranslation } from "react-i18next";
 import { fetchCountAndUpdateUI } from '../utils/count';
+import { useTranslation } from 'react-i18next';
+
+type FooterProps = {
+  global_pv: number; // 全站访问量
+  global_uv: number; // 全站独立访客数
+};
+
+const Footer: React.FC<FooterProps> = ({ global_pv, global_uv }) => {
+  const { t } = useTranslation();
+
+  return (
+    <footer className="bg-gray-800 text-white py-4">
+      <div className="container mx-auto text-center">
+        <p className="text-[12px] font-normal">
+          <span>{t("count.global_pv")}: </span>
+          <span>{global_pv}</span>
+          <span> | </span>
+          <span>{t("count.global_uv")}: </span>
+          <span>{global_uv}</span>
+        </p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
 
 type ThemeMode = 'light' | 'dark' | 'system';
 function Footer() {
