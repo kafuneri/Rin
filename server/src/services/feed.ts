@@ -189,29 +189,46 @@ export function FeedService() {
                     const hashtags_flatten = hashtags.map((f) => f.hashtag);
 
 
-                    // update visits
-                    const config = ClientConfig()
+                    // update visits                   
+                    const config = ClientConfig();
                     const enableVisit = await config.getOrDefault('counter.enabled', true);
                     let pv = 0;
                     let uv = 0;
+                    let global_pv = 0; // 全站访问量
+                    let global_uv = 0; // 全站独立访客数
+                    
                     if (enableVisit) {
-                        const ip = headers['cf-connecting-ip'] || headers['x-real-ip'] || "UNK"
+                        const ip = headers['cf-connecting-ip'] || headers['x-real-ip'] || "UNK";
+                        
+                        // 记录当前 feed 的访问
                         await db.insert(visits).values({
                             feedId: feed.id,
                             ip: ip,
                         });
+                    
+                        // 查询当前 feed 的访问记录
                         const visit = await db.query.visits.findMany({
                             where: eq(visits.feedId, feed.id),
                             columns: { id: true, ip: true }
                         });
                         pv = visit.length;
                         uv = new Set(visit.map((v) => v.ip)).size;
+                    
+                        // 查询全站的访问记录
+                        const globalVisit = await db.query.visits.findMany({
+                            columns: { id: true, ip: true }
+                        });
+                        global_pv = globalVisit.length; // 全站访问量
+                        global_uv = new Set(globalVisit.map((v) => v.ip)).size; // 全站独立访客数
                     }
+                    
                     const data = {
                         ...other,
                         hashtags: hashtags_flatten,
                         pv,
-                        uv
+                        uv,
+                        global_pv, // 添加全站访问量
+                        global_uv  // 添加全站独立访客数
                     };
                     return data;
                 })
