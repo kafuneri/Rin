@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState, React } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Popup from 'reactjs-popup';
 import { ClientConfigContext } from '../state/config';
 import { Helmet } from "react-helmet";
@@ -29,8 +29,6 @@ const Footer: React.FC<FooterProps> = ({ global_pv, global_uv }) => {
     </footer>
   );
 };
-
-export default Footer;
 
 type ThemeMode = 'light' | 'dark' | 'system';
 function Footer() {
