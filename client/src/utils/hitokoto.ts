@@ -9,7 +9,7 @@ export async function fetchHitokoto() {
         loading = false;
         return;
     }
-    const response = await fetch('https://api.obdo.cc/hitokoto/?encode=text');
+    const response = await fetch('https://v1.hitokoto.cn/?encode=text');
     const hitokotoText = await response.text();
     cachedHitokoto = hitokotoText;
     updateHitokotoElements(hitokotoText);
