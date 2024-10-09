@@ -1,10 +1,44 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState, useRef } from 'react';
 import Popup from 'reactjs-popup';
 import { ClientConfigContext } from '../state/config';
 import { Helmet } from "react-helmet";
 import { siteName } from '../utils/constants';
 import { useTranslation } from "react-i18next";
 import { fetchCountAndUpdateUI } from '../utils/count';
+import ReactModal from "react-modal";
+import { Link, useLocation } from "wouter";
+import { useAlert, useConfirm } from "../components/dialog";
+import { HashTag } from "../components/hashtag";
+import { Waiting } from "../components/loading";
+import { Markdown } from "../components/markdown";
+import { client } from "../main";
+import { ProfileContext } from "../state/profile";
+import { headersWithAuth } from "../utils/auth";
+import { timeago } from "../utils/timeago";
+import { Button } from "../components/button";
+import { Tips } from "../components/tips";
+import { useLoginModal } from "../hooks/useLoginModal";
+import mermaid from "mermaid";
+
+type Feede = {
+  id: number;
+  title: string | null;
+  content: string;
+  uid: number;
+  createdAt: Date;
+  updatedAt: Date;
+  hashtags: {
+    id: number;
+    name: string;
+  }[];
+  user: {
+    avatar: string | null;
+    id: number;
+    username: string;
+  };
+  global_pv: number;
+  global_uv: number;
+};
 
 type ThemeMode = 'light' | 'dark' | 'system';
 function Footer() {
