@@ -52,7 +52,7 @@ function Footer() {
                     <ThemeButton mode='dark' current={modeState} label="Toggle dark mode" icon="ri-moon-line" onClick={setMode} />
                    </div>
                 <p className='text-sm text-neutral-500 font-normal text-center'>
-                    {t('count.site_pv')} <span id="busuanzi_value_site_pv"></span> | {t('count.site_uv')} <span id="busuanzi_value_site_uv"></span>
+                    {t('count.site_pv')} <span id="site_pv"></span> | {t('count.site_uv')} <span id="site_uv"></span>
                 </p>
                 <p className='text-sm text-neutral-500 font-normal link-line text-center'>
                     <span>
