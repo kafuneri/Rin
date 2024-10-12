@@ -5,7 +5,7 @@ export async function fetchCountAndUpdateUI(isFeed = false) {
   counting = true;
   const currentURL = window.location.href;
 
-  const response = await fetch('https://api.obdo.cc/count/api', {
+  const response = await fetch('https://busuanzi.ibruce.info/busuanzi', {
     method: 'POST',
     headers: {
       'X-Bsz-Referer': currentURL
