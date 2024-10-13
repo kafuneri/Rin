@@ -68,6 +68,7 @@ function App() {
         { src: "https://npm.elemecdn.com/aplayer@1.10.1/dist/APlayer.min.js" },
         { src: "https://npm.elemecdn.com/meting@2.0.1/dist/Meting.min.js" },
       ];
+     const live2dScript = { src: "https://cdn.jsdelivr.net/gh/kafuneri/live2d-api@0.0.3/jsdelivr/sequential/autoload.min.js" };
 
       Promise.all(musicScripts.map(script => new Promise<void>((resolve, reject) => {
         const scriptElement = document.createElement('script');
@@ -90,6 +91,15 @@ function App() {
         `;
         document.body.appendChild(externalContainer);
       });
+
+      const live2dScriptElement = document.createElement('script');
+      live2dScriptElement.src = live2dScript.src;
+      live2dScriptElement.async = true;
+      document.body.appendChild(live2dScriptElement);
+      const live2dCssLink = document.createElement('link');
+      live2dCssLink.rel = 'stylesheet';
+      live2dCssLink.href = 'https://fastly.jsdelivr.net/gh/kafuneri/live2d-widget@0.0.9/waifu.css';
+      document.head.appendChild(live2dCssLink);
     }
     ref.current = true
   }, [])
