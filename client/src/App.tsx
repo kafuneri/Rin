@@ -98,7 +98,7 @@ function App() {
       document.body.appendChild(live2dScriptElement);
       const live2dCssLink = document.createElement('link');
       live2dCssLink.rel = 'stylesheet';
-      live2dCssLink.href = 'https://cdn.jsdelivr.net/gh/nova1751/live2d-api@latest/css/right.min.css';
+      live2dCssLink.href = 'https://fastly.jsdelivr.net/gh/kafuneri/live2d-widget@0.0.9/waifu.css';
       document.head.appendChild(live2dCssLink);
     }
     ref.current = true
