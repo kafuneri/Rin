@@ -68,7 +68,7 @@ function App() {
         { src: "https://npm.elemecdn.com/aplayer@1.10.1/dist/APlayer.min.js" },
         { src: "https://npm.elemecdn.com/meting@2.0.1/dist/Meting.min.js" },
       ];
-     
+     const live2dScript = { src: "https://cdn.jsdelivr.net/gh/kafuneri/live2d-api@0.0.2/jsdelivr/sequential/autoload.min.js" };
 
       Promise.all(musicScripts.map(script => new Promise<void>((resolve, reject) => {
         const scriptElement = document.createElement('script');
