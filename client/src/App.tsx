@@ -96,7 +96,10 @@ function App() {
       live2dScriptElement.src = live2dScript.src;
       live2dScriptElement.async = true;
       document.body.appendChild(live2dScriptElement);
-
+      const live2dCssLink = document.createElement('link');
+      live2dCssLink.rel = 'stylesheet';
+      live2dCssLink.href = 'https://cdn.jsdelivr.net/gh/nova1751/live2d-api@latest/css/right.min.css';
+      document.head.appendChild(live2dCssLink);
     }
     ref.current = true
   }, [])
