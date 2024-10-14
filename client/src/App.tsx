@@ -98,7 +98,7 @@ function App() {
       document.body.appendChild(live2dScriptElement);
       const live2dCssLink = document.createElement('link');
       live2dCssLink.rel = 'stylesheet';
-      live2dCssLink.href = 'https://cdn.jsdelivr.net/gh/nova1751/live2d-api@latest/css/left.min.css';
+      live2dCssLink.href = 'https://pan.kafuchino.top/f/x4mcY/right.css';
       document.head.appendChild(live2dCssLink);
     }
     ref.current = true
