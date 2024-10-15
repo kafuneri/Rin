@@ -29,7 +29,6 @@ function App() {
   const { t } = useTranslation()
   const [profile, setProfile] = useState<Profile | undefined>()
   const [config, setConfig] = useState<ConfigWrapper>(new ConfigWrapper({}, new Map()))
-  const externalHTMLLoaded = useRef(false);
   useEffect(() => {
     if (ref.current) return
     if (getCookie('token')?.length ?? 0 > 0) {
@@ -59,37 +58,6 @@ function App() {
           setConfig(config)
         }
       })
-    }  
-    const ua = navigator.userAgent;
-    const hasFetchAction = /FetchAction/.test(ua);
-    if (!hasFetchAction && !externalHTMLLoaded.current) {
-      externalHTMLLoaded.current = true;
-      const musicScripts = [
-        { src: "https://npm.elemecdn.com/aplayer@1.10.1/dist/APlayer.min.js" },
-        { src: "https://npm.elemecdn.com/meting@2.0.1/dist/Meting.min.js" },
-      ];
-
-      Promise.all(musicScripts.map(script => new Promise<void>((resolve, reject) => {
-        const scriptElement = document.createElement('script');
-        scriptElement.src = script.src;
-        scriptElement.onload = () => resolve();
-        scriptElement.onerror = () => reject();
-        scriptElement.async = true;
-        document.body.appendChild(scriptElement);
-      }))).then(() => {
-        const metingScriptContent = `var meting_api='https://music.kafuchino.top/api?server=:server&type=:type&id=:id';`;
-        const metingScript = document.createElement('script');
-        metingScript.textContent = metingScriptContent;
-        document.body.appendChild(metingScript);
-
-        const externalContainer = document.createElement('div');
-        externalContainer.innerHTML = `
-          <div style="max-width: 450px; margin: auto;">
-            <meting-js autoplay="false" order="random" theme="#409EFF" list-folded="true" fixed="true" auto="https://music.163.com/#/playlist?id=8583100884"/>
-          </div>
-        `;
-        document.body.appendChild(externalContainer);
-      });
     }
     ref.current = true
   }, [])
@@ -110,6 +78,7 @@ function App() {
             <RouteMe path="/timeline">
               <TimelinePage />
             </RouteMe>
+
 
             <RouteMe path="/friends">
               <FriendsPage />
@@ -134,6 +103,7 @@ function App() {
             <RouteMe path="/settings" paddingClassName='mx-4'>
               <Settings />
             </RouteMe>
+
 
             <RouteMe path="/writing" paddingClassName='mx-4'>
               <WritingPage />
@@ -217,6 +187,7 @@ function RouteMe({ path, children, headerComponent, paddingClassName }:
     </Route>
   )
 }
+
 
 function RouteWithIndex({ path, children }:
   { path: PathPattern, children: (params: DefaultParams, TOC: () => JSX.Element, clean: (id: string) => void) => React.ReactNode }) {
