@@ -68,7 +68,6 @@ function App() {
         { src: "https://npm.elemecdn.com/aplayer@1.10.1/dist/APlayer.min.js" },
         { src: "https://npm.elemecdn.com/meting@2.0.1/dist/Meting.min.js" },
       ];
-     const live2dScript = { src: "https://cdn.jsdelivr.net/gh/kafuneri/live2d-api@0.0.3/jsdelivr/sequential/autoload.min.js" };
 
       Promise.all(musicScripts.map(script => new Promise<void>((resolve, reject) => {
         const scriptElement = document.createElement('script');
@@ -91,15 +90,6 @@ function App() {
         `;
         document.body.appendChild(externalContainer);
       });
-
-      const live2dScriptElement = document.createElement('script');
-      live2dScriptElement.src = live2dScript.src;
-      live2dScriptElement.async = true;
-      document.body.appendChild(live2dScriptElement);
-      const live2dCssLink = document.createElement('link');
-      live2dCssLink.rel = 'stylesheet';
-      live2dCssLink.href = 'https://alist-proxy.kafuchino.top/cdut/right.css?sign=qRfCrcx7oz-Qcxf1K0jQx78JDD30MdiwexbwAVpFTLs=:0';
-      document.head.appendChild(live2dCssLink);
     }
     ref.current = true
   }, [])
@@ -120,7 +110,6 @@ function App() {
             <RouteMe path="/timeline">
               <TimelinePage />
             </RouteMe>
-
 
             <RouteMe path="/friends">
               <FriendsPage />
@@ -145,7 +134,6 @@ function App() {
             <RouteMe path="/settings" paddingClassName='mx-4'>
               <Settings />
             </RouteMe>
-
 
             <RouteMe path="/writing" paddingClassName='mx-4'>
               <WritingPage />
@@ -229,7 +217,6 @@ function RouteMe({ path, children, headerComponent, paddingClassName }:
     </Route>
   )
 }
-
 
 function RouteWithIndex({ path, children }:
   { path: PathPattern, children: (params: DefaultParams, TOC: () => JSX.Element, clean: (id: string) => void) => React.ReactNode }) {
