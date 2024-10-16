@@ -2,6 +2,7 @@
 
 本仓库是个人博客 [奇诺博客](https://blog.kafuchino.top) 的源代码
 用了仓库为 [笨蛋小破站](https://github.com/liuran001/Rin) 的计数，一言代码
+
 原仓库: https://github.com/OXeu/Rin
 ## 相较修改版的修改
 主要是改了api接口，加了点花里胡哨的特效
