@@ -8,9 +8,9 @@
 主要是改了api接口，加了点花里胡哨的特效
 所用api接口：
 - 计数: https://api.obdo.cc/count  
-- MetingAPI: https://api.obdo.cc/meting  ](https://music.kafuchino.top/api
-- 一言: https://api.obdo.cc/hitokoto  ](https://v1.hitokoto.cn
-- 看板娘: https://api.obdo.cc/live2d.js](https://github.com/nova1751/live2d-api  
+- MetingAPI: https://music.kafuchino.top/api
+- 一言: https://v1.hitokoto.cn
+- 看板娘: https://github.com/nova1751/live2d-api  
 - 网站分析：https://analyze.kafuchino.top
 
 # Rin 自用修改版
