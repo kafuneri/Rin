@@ -98,7 +98,7 @@ function App() {
       document.body.appendChild(live2dScriptElement);
       const live2dCssLink = document.createElement('link');
       live2dCssLink.rel = 'stylesheet';
-      live2dCssLink.href = 'https://neri.s3.bitiful.net/live2d-api/css/left.css';
+      live2dCssLink.href = 'https://neri.s3.bitiful.net/live2d-api/css/right.css';
       document.head.appendChild(live2dCssLink);
     }
     ref.current = true
