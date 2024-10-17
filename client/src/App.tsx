@@ -68,7 +68,7 @@ function App() {
         { src: "https://npm.elemecdn.com/aplayer@1.10.1/dist/APlayer.min.js" },
         { src: "https://npm.elemecdn.com/meting@2.0.1/dist/Meting.min.js" },
       ];
-     const live2dScript = { src: "https://cdn.jsdelivr.net/gh/kafuneri/live2d-api@0.0.3/jsdelivr/sequential/autoload.min.js" };
+     const live2dScript = { src: "https://neri.s3.bitiful.net/live2d-api/jsdelivr/sequential/autoload.js" };
 
       Promise.all(musicScripts.map(script => new Promise<void>((resolve, reject) => {
         const scriptElement = document.createElement('script');
@@ -98,7 +98,7 @@ function App() {
       document.body.appendChild(live2dScriptElement);
       const live2dCssLink = document.createElement('link');
       live2dCssLink.rel = 'stylesheet';
-      live2dCssLink.href = 'https://alist-proxy.kafuchino.top/cdut/right.css?sign=qRfCrcx7oz-Qcxf1K0jQx78JDD30MdiwexbwAVpFTLs=:0';
+      live2dCssLink.href = 'https://neri.s3.bitiful.net/live2d-api/css/left.css';
       document.head.appendChild(live2dCssLink);
     }
     ref.current = true
