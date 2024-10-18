@@ -56,7 +56,7 @@ function Footer() {
                 </p>
                 <p className='text-sm text-neutral-500 font-normal link-line text-center'>
                     <span>
-                        © 2024 <a className='hover:underline' href="https://www.kafuchino.top" target="_blank">Chino</a>
+                        © 2024 <a className='hover:underline' href="https://kafuchino.top" target="_blank">Chino</a>
                     </span>
                     {config.get<boolean>('rss') && <>
                         <Spliter />
