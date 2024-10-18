@@ -98,7 +98,7 @@ function App() {
       document.body.appendChild(live2dScriptElement);
       const live2dCssLink = document.createElement('link');
       live2dCssLink.rel = 'stylesheet';
-      live2dCssLink.href = 'https://live2d.kafuchino.top/right.css';
+      live2dCssLink.href = 'https://alist-proxy.kafuchino.top/Sharepoint/live2d-api/right.css?sign=9aNvY5UCPuRzW1Uj-ABknp2rM5gEViIilgKoXOd8mpY=:0';
       document.head.appendChild(live2dCssLink);
     }
     ref.current = true
