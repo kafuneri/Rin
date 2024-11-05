@@ -83,27 +83,15 @@ function Footer() {
                                         JSON
                                     </a>
                                 </p>
-
-                           </div>
-    </Popup>
-</>}
-<br/>
-<a class='hover:underline' href="https://beian.miit.gov.cn" target="_blank">
-    <span class="icon-MOE"/>冀ICP备2024090725号
-</a>
-<br/>
-<a class='hover:underline' href="https://icp.gov.moe/?keyword=20243666" target="_blank">
-    <span class="icon-MOE"/>萌ICP备20243666号
-</a> | 
-<a class='hover:underline' href="https://travel.moe/go.html?travel=on" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">
-    异次元之旅
-</a>
-<br/>Powered by 
-<a class='hover:underline' href="https://github.com/kafuneri/Rin" target="_blank">Rin</a> & 
-<a class='hover:underline' href="https://www.cloudflare.com" target="_blank">Cloudflare</a>
-</p>               
-</div>            
-</footer>
+                        </div>
+                        </Popup>
+                    </>}
+                     <br/>
+                    <a className='hover:underline' href="https://icp.gov.moe/?keyword=20243666" target="_blank"><span className="icon-MOE"/>萌ICP备20243666号</a> | <a className='hover:underline' href="https://travel.moe/go.html?travel=on" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">异次元之旅</a>
+                    <br/>Powered by <a className='hover:underline' href="https://github.com/kafuneri/Rin" target="_blank">Rin</a> & <a className='hover:underline' href="https://www.cloudflare.com" target="_blank">Cloudflare</a>
+                    </p>               
+            </div>            
+        </footer>
 
     );
 }
