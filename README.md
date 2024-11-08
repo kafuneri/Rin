@@ -60,6 +60,9 @@ English | [简体中文](./README_zh_CN.md)
 ![GitHub License](https://img.shields.io/github/license/OXeu/Rin?style=for-the-badge)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/OXeu/Rin/deploy.yaml?style=for-the-badge)
 
+[![Discord](https://img.shields.io/badge/Discord-openRin-red?style=for-the-badge&color=%236e7acc)](https://discord.gg/JWbSTHvAPN)
+[![Telegram](https://img.shields.io/badge/Telegram-openRin-red?style=for-the-badge&color=%233390EC)](https://t.me/openRin)
+
 # Introduction
 
 Rin is a blog based on Cloudflare Pages + Workers + D1 + R2. It does not require a server to deploy. It can be deployed just with a domain name that resolves to Cloudflare.
