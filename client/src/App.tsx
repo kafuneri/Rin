@@ -68,7 +68,7 @@ function App() {
         { src: "https://npm.elemecdn.com/aplayer@1.10.1/dist/APlayer.min.js" },
         { src: "https://npm.elemecdn.com/meting@2.0.1/dist/Meting.min.js" },
       ];
-     const live2dScript = { src: "https://aliyun.kafuchino.top/live2d.js" };
+     const live2dScript = { src: "https://live2d.kafuchino.top/live2d.js" };
 
       Promise.all(musicScripts.map(script => new Promise<void>((resolve, reject) => {
         const scriptElement = document.createElement('script');
@@ -98,7 +98,7 @@ function App() {
       document.body.appendChild(live2dScriptElement);
       const live2dCssLink = document.createElement('link');
       live2dCssLink.rel = 'stylesheet';
-      live2dCssLink.href = 'https://aliyun.kafuchino.top/right.css';
+      live2dCssLink.href = 'https://live2d.kafuchino.top/right.css';
       document.head.appendChild(live2dCssLink);
     }
     ref.current = true
