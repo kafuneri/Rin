@@ -55,6 +55,8 @@ function Footer() {
                     {t('count.site_pv')} <span id="site_pv"></span> | {t('count.site_uv')} <span id="site_uv"></span>
                 </p>
                 <p className='text-sm text-neutral-500 font-normal link-line text-center'>
+                    <br/> <a className='hover:underline' href="https://beian.miit.gov.cn" target="_blank">冀ICP备2024090725号</a>
+                    <br/> <a className='hover:underline' href="https://beian.mps.gov.cn/#/query/webSearch?code=13073302000040" target="_blank">冀公网安备13073302000040</a>
                     <span>
                         © 2024 <a className='hover:underline' href="https://kafuchino.top" target="_blank">Chino</a>
                     </span>
@@ -85,8 +87,7 @@ function Footer() {
                                 </p>
                         </div>
                         </Popup>
-                    </>}
-                     <br/> <a className='hover:underline' href="https://beian.miit.gov.cn" target="_blank">冀ICP备2024090725号</a>
+                    </>}                    
                      <br/>
                     <a className='hover:underline' href="https://icp.gov.moe/?keyword=20243666" target="_blank"><span className="icon-MOE"/>萌ICP备20243666号</a> | <a className='hover:underline' href="https://travel.moe/go.html?travel=on" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！" target="_blank">异次元之旅</a>
                     <br/>Powered by <a className='hover:underline' href="https://github.com/kafuneri/Rin" target="_blank">Rin</a> & <a className='hover:underline' href="https://www.cloudflare.com" target="_blank">Cloudflare</a>
