@@ -57,6 +57,7 @@ function Footer() {
                 <p className='text-sm text-neutral-500 font-normal link-line text-center'>
                     <br/> <a className='hover:underline' href="https://beian.miit.gov.cn" target="_blank">冀ICP备2024090725号</a>
                     <br/> <a className='hover:underline' href="https://beian.mps.gov.cn/#/query/webSearch?code=13073302000040" target="_blank">冀公网安备13073302000040</a>
+                    <br/> 
                     <span>
                         © 2024 <a className='hover:underline' href="https://kafuchino.top" target="_blank">Chino</a>
                     </span>
