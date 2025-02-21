@@ -19,8 +19,7 @@ function Footer() {
         const mode = localStorage.getItem('theme') as ThemeMode || 'system';
         setModeState(mode);
         setMode(mode);
-    }, [])
-    {/*引入不蒜子计数器*/}
+    }, [])    
     useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js";
