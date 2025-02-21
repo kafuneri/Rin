@@ -55,7 +55,6 @@ function Footer() {
             </Helmet>
             <div className="flex flex-col mb-8 space-y-2 justify-center items-center t-primary ani-show">
                 {footerHtml && <div dangerouslySetInnerHTML={{ __html: footerHtml }} />}
-                  <p className='text-sm text-neutral-500 font-normal link-line'></p>
                     {/*移动夜间模式位置*/}
                     <div className="w-fit-content inline-flex rounded-full border border-zinc-200 p-[3px] dark:border-zinc-700">
                     <ThemeButton mode='light' current={modeState} label="Toggle light mode" icon="ri-sun-line" onClick={setMode} />
@@ -63,7 +62,7 @@ function Footer() {
                     <ThemeButton mode='dark' current={modeState} label="Toggle dark mode" icon="ri-moon-line" onClick={setMode} /></div>
                     <p className='text-sm text-neutral-500 font-normal link-line text-center'>
                     {/* 添加站点访问量统计代码 */}                        
-<span id="busuanzi_container_site_pv">总浏览量 <span id="busuanzi_value_site_pv"></span> | </span>总访客数 <span id="busuanzi_value_site_uv"></span><br/>
+总浏览量 <span id="busuanzi_value_site_pv"></span> | </span>总访客数 <span id="busuanzi_value_site_uv"></span><br/>
                     {/*添加备案信息*/}
 <br/> <a className='hover:underline' href="https://beian.miit.gov.cn" target="_blank">冀ICP备2024090725号</a><br/><a className='hover:underline' href="https://beian.mps.gov.cn/#/query/webSearch?code=13073302000040" target="_blank"><img src="https://beian.mps.gov.cn/web/assets/logo01.6189a29f.png" alt="备案图标" style={{ display: 'inline-block', width: '16px', height: '16px', verticalAlign: 'middle', marginRight: '4px' }} />冀公网安备13073302000040</a><br/>                   
                     <span onDoubleClick={() => {
@@ -76,7 +75,7 @@ function Footer() {
                             setDoubleClickTimes(doubleClickTimes + 1)
                         }
                     }}>
-                        © 2024 <a className='hover:underline' href="https://kafuchino.top" target="_blank">Chino</a>
+                        © 2024 <a className='hover:underline' href="https://www.kafuchino.top" target="_blank">Chino</a>
                     </span>
                     {config.get<boolean>('rss') && <>
                         <Spliter />
