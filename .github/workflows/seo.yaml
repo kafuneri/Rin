@@ -4,6 +4,7 @@ on:
   schedule:
     - cron: "0 8 * * *"
   workflow_dispatch:
+  
 
 jobs:
   build:
@@ -30,7 +31,7 @@ jobs:
           npx puppeteer@22.15.0 browsers install chrome
 
       - name: Run script
-        env:
+        env: # Or as an environment variable
           S3_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
           S3_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
           S3_REGION: ${{ vars.S3_REGION }}
@@ -42,8 +43,7 @@ jobs:
           S3_BUCKET: ${{ vars.S3_BUCKET }}
           S3_CACHE_FOLDER: ${{ vars.S3_CACHE_FOLDER }}
           S3_FORCE_PATH_STYLE: ${{ vars.S3_FORCE_PATH_STYLE }}
-          PUPPETEER_TIMEOUT: 60000  # Set custom timeout for Puppeteer
         run: |
           cd Rin/
           bun install --frozen-lockfile
-          bun scripts/render.ts --timeout ${{ env.PUPPETEER_TIMEOUT }}  # Pass the timeout value to the script
+          bun scripts/render.ts
