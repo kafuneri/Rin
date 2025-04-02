@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/sub/rss.xml",
-      "destination": "https://rin.kafuchino.top/sub/rss.xml"
+      "source": "/sub/*",
+      "destination": "https://rin.kafuchino.top/sub/:splat"
     }
   ]
 }
