@@ -1,8 +1,9 @@
 {
-  "rewrites": [
+  "redirects": [
     {
       "source": "/sub/*",
-      "destination": "https://rin.kafuchino.top/sub/:splat"
+      "destination": "https://rin.kafuchino.top/sub/:splat",
+      "statusCode": 301
     }
   ]
 }
